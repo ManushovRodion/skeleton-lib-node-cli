@@ -6,6 +6,7 @@ import typescript from '@rollup/plugin-typescript';
 import { terser } from 'rollup-plugin-terser';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import dts from 'rollup-plugin-dts';
+import json from '@rollup/plugin-json';
 
 import { dependencies, name } from './../package.json';
 
@@ -70,17 +71,18 @@ async function main(namePackage: string) {
     {
       type: 'cjs',
       plugins: [
+        json(),
         typescript({ tsconfig: `${dirPackage}/tsconfig.json` }),
         terser({ compress: true }),
       ],
     },
     {
       type: 'es',
-      plugins: [typescript(), terser({ compress: true })],
+      plugins: [json(), typescript(), terser({ compress: true })],
     },
     {
       type: 'umd',
-      plugins: [nodeResolve(), typescript(), terser({ compress: true })],
+      plugins: [json(), nodeResolve(), typescript(), terser({ compress: true })],
     },
   ];
 
