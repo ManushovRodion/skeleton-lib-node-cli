@@ -1,21 +1,21 @@
 ### readme: [Главная](./../README.md) | [EN](./README-EN.md)
 
-# {NAME-PACKAGE}
+# SKELETON-LIB-NODE-CLI
 
-> {description}
+> ...
 
 ## # Установка
 
 Для тех кто использует NPM:
 
 ```sh
-npm install --save-dev {name-package}
+npm install --save-dev skeleton-lib-node-cli
 ```
 
 Для тех кто использует YARN:
 
 ```sh
-yarn add {name-package} --dev
+yarn add skeleton-lib-node-cli --dev
 ```
 
 ## # Лицензия

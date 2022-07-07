@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const lib = require('../dist/{name-package}.cjs');
+const lib = require('../dist/skeleton-lib-node-cli.cjs');
 
 try {
   lib.cli(process);

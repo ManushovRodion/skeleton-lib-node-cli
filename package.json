@@ -3,21 +3,21 @@
   "version": "0.1.0",
   "description": "",
   "license": "MIT",
-  "author": "{author-repo}",
+  "author": "ManushovRodion <rodion-krox@mauil.ru>",
   "repository": {
     "type": "git",
-    "url": "git+https://{git-repo-domain}/{git-repo-dir}/{name-package}.git"
+    "url": "git+https://github.com/ManushovRodion/skeleton-lib-node-cli.git"
   },
   "bugs": {
-    "url": "https://{git-repo-domain}/{git-repo-dir}/{name-package}/issues"
+    "url": "https://github.com/ManushovRodion/skeleton-lib-node-cli/issues"
   },
-  "homepage": "https://{git-repo-domain}/{git-repo-dir}/{name-package}",
-  "main": "dist/{name-package}.cjs.js",
-  "types": "dist/{name-package}.d.ts",
-  "unpkg": "dist/{name-package}.umd.js",
-  "module": "dist/{name-package}.es.js",
+  "homepage": "https://github.com/ManushovRodion/skeleton-lib-node-cli",
+  "main": "dist/skeleton-lib-node-cli.cjs.js",
+  "types": "dist/skeleton-lib-node-cli.d.ts",
+  "unpkg": "dist/skeleton-lib-node-cli.umd.js",
+  "module": "dist/skeleton-lib-node-cli.es.js",
   "bin": {
-    "{name-package}": "./bin/cli.js"
+    "skeleton-lib-node-cli": "./bin/cli.js"
   },
   "keywords": [],
   "files": [

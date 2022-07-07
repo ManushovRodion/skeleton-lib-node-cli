@@ -1,21 +1,21 @@
 ### readme: [Home](./../README.md) | [RU](./README-RU.md)
 
-# {NAME-PACKAGE}
+# SKELETON-LIB-NODE-CLI
 
-> {description}
+> ...
 
 ## # Install
 
 For those who use NPM:
 
 ```sh
-npm install --save-dev {name-package}
+npm install --save-dev skeleton-lib-node-cli
 ```
 
 For those who use YARN:
 
 ```sh
-yarn add {name-package} --dev
+yarn add skeleton-lib-node-cli --dev
 ```
 
 ## # License

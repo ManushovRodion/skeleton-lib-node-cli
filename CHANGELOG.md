@@ -1,4 +1,4 @@
-# {NAME-PACKAGE}
+# SKELETON-LIB-NODE-CLI
 
 - Changelog: [Русский](./docs/CHANGELOG-RU.md)
 
