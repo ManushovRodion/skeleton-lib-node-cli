@@ -2,21 +2,28 @@
 
 # SKELETON-LIB-NODE-CLI
 
-> ...
+> Command line interface that invokes skeleton libraries based on [skeleton-lib-node](https://github.com/ManushovRodion/skeleton-lib-node)
 
 ## # Install
 
-For those who use NPM:
-
 ```sh
-npm install --save-dev skeleton-lib-node-cli
+npx skeleton-lib-node-cli
 ```
 
-For those who use YARN:
+The cli also has optional parameters:
 
 ```sh
-yarn add skeleton-lib-node-cli --dev
+npx skeleton-lib-node-cli -lang en
+
+npx skeleton-lib-node-cli -result DIR_PROJECT
+
+npx skeleton-lib-node-cli -result DIR_PROJECT -lang en
 ```
+
+| Option   | Type     | Default | Description                              |
+| ------- | -------- | ------------ | -------------------------------------- |
+| -lang   | en \| ru | ru           | What language should the UI cli be in?      |
+| -result | string   | ---          | The path where to unload the library skeleton |
 
 ## # License
 

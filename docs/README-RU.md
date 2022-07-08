@@ -2,21 +2,28 @@
 
 # SKELETON-LIB-NODE-CLI
 
-> ...
+> Интерфейс командной строки, который инициализирует скелет библиотеки, на базе [skeleton-lib-node](https://github.com/ManushovRodion/skeleton-lib-node)
 
 ## # Установка
 
-Для тех кто использует NPM:
-
 ```sh
-npm install --save-dev skeleton-lib-node-cli
+npx skeleton-lib-node-cli
 ```
 
-Для тех кто использует YARN:
+Так же у cli есть не обязательные параметры:
 
 ```sh
-yarn add skeleton-lib-node-cli --dev
+npx skeleton-lib-node-cli -lang en
+
+npx skeleton-lib-node-cli -result DIR_PROJECT
+
+npx skeleton-lib-node-cli -result DIR_PROJECT -lang en
 ```
+
+| Опция   | Тип      | По умолчанию | Описание                               |
+| ------- | -------- | ------------ | -------------------------------------- |
+| -lang   | en \| ru | ru           | На каком языке должен быть UI cli      |
+| -result | string   | ---          | Путь, куда выгрузить скелет библиотеки |
 
 ## # Лицензия
 

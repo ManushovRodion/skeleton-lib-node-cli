@@ -1,7 +1,7 @@
 {
   "name": "skeleton-lib-node-cli",
   "version": "0.1.0",
-  "description": "",
+  "description": "[RU]Интерфейс командной строки, который инициализирует скелет библиотеки, на базе skeleton-lib-node.[EN]Command line interface that invokes skeleton libraries based on skeleton-lib-node",
   "license": "MIT",
   "author": "ManushovRodion <rodion-krox@mauil.ru>",
   "repository": {
@@ -19,7 +19,15 @@
   "bin": {
     "skeleton-lib-node-cli": "./bin/cli.js"
   },
-  "keywords": [],
+  "keywords": [
+    "skeleton-lib-node",
+    "skeleton",
+    "template",
+    "lib",
+    "node",
+    "cli",
+    "rollup"
+  ],
   "files": [
     "dist"
   ],
