@@ -27,7 +27,7 @@
     "lint": "eslint",
     "lint:format": "prettier --write .",
     "build": "ts-node scripts/build.ts",
-    "demo:cli": "node bin/cli.js",
+    "demo:cli": "node bin/cli.js -result project-demo",
     "test": "jest"
   },
   "dependencies": {

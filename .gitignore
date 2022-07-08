@@ -2,7 +2,7 @@
 node_modules
 dist
 coverage
-.skeleton-lib-node
+project-demo
 
 # Generated OS
 .DS_Store
