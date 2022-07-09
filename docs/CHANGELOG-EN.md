@@ -3,6 +3,7 @@
 # SKELETON-LIB-NODE-CLI
 
 FIXS:
+
 - The {author-repo} value was not set in the package.json file
 - The {name-package} value was not set in the README.md file
 - The project contains .git skeleton-lib-node

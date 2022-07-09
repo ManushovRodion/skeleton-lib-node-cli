@@ -14,7 +14,7 @@ export default function createDefaultTags(lang: Lang) {
         'bin/cli.js',
         'README.md',
         'docs/README-EN.md',
-        'docs/README-RU.md'
+        'docs/README-RU.md',
       ],
     },
     'NAME-PACKAGE': {
@@ -52,7 +52,7 @@ export default function createDefaultTags(lang: Lang) {
       tag: 'description',
       value: '',
       title: t('title.description'),
-      files: ['package.json','docs/README-EN.md', 'docs/README-RU.md'],
+      files: ['package.json', 'docs/README-EN.md', 'docs/README-RU.md'],
     },
   };
 }

@@ -15,5 +15,11 @@
     "resolveJsonModule": true
   },
   "include": ["**/*.ts"],
-  "exclude": ["node_modules", "dist", "jest.config.ts", "scripts", "project-demo"]
+  "exclude": [
+    "node_modules",
+    "dist",
+    "jest.config.ts",
+    "scripts",
+    "project-demo"
+  ]
 }

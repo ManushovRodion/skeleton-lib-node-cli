@@ -82,7 +82,12 @@ async function main(namePackage: string) {
     },
     {
       type: 'umd',
-      plugins: [json(), nodeResolve(), typescript(), terser({ compress: true })],
+      plugins: [
+        json(),
+        nodeResolve(),
+        typescript(),
+        terser({ compress: true }),
+      ],
     },
   ];
 
