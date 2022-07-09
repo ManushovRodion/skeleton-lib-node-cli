@@ -4,6 +4,7 @@
 
 FIXS:
 - Не устанавливалось значение {author-repo} в файле package.json
+- Не устанавливалось значение {name-package} в файле README.md
 
 ### # v1.0.0-alpha.0 (2022-07-08)
 

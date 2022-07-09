@@ -12,6 +12,7 @@ export default function createDefaultTags(lang: Lang) {
       files: [
         'package.json',
         'bin/cli.js',
+        'README.md',
         'docs/README-EN.md',
         'docs/README-RU.md'
       ],
