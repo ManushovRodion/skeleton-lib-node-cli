@@ -5,7 +5,11 @@ import en from './state/lang/en.json';
 
 export type Lang = 'ru' | 'en';
 
-export default function translate(lang: Lang) {
+export type Translate = {
+  get: (path: string) => string
+}
+
+export default function createTranslate(lang: Lang): Translate {
   const json = lang === 'en' ? en : ru;
 
   return {
