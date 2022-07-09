@@ -13,7 +13,7 @@ export default function createDefaultTags(lang: Lang) {
         'package.json',
         'bin/cli.js',
         'docs/README-EN.md',
-        'docs/README-RU.md',
+        'docs/README-RU.md'
       ],
     },
     'NAME-PACKAGE': {
@@ -45,7 +45,7 @@ export default function createDefaultTags(lang: Lang) {
       tag: 'author-repo',
       value: '',
       title: t('title.authorRepo'),
-      files: ['LICENSE'],
+      files: ['package.json', 'LICENSE'],
     },
     description: {
       tag: 'description',
