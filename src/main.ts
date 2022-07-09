@@ -88,6 +88,7 @@ export function cli(process: NodeJS.Process) {
     });
 
     [
+      '.git',
       'README-DEVELOP.md',
       'docs/README-DEVELOP-RU.md',
       'docs/README-DEVELOP-EN.md',
