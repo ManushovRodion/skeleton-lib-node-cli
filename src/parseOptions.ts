@@ -1,4 +1,4 @@
-import { Lang } from './type';
+import { Lang } from './translate';
 
 export default function parseOptions(process: NodeJS.Process) {
   const argv = process.argv.slice(2);

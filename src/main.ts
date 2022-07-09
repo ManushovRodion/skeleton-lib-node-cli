@@ -3,7 +3,7 @@ import { exec } from 'child_process';
 import { createInterface } from 'readline';
 
 import parseOptions from './parseOptions';
-import lang from './lang';
+import translate from './translate';
 import { messageError } from './message';
 import getListNameFiles from './getListNameFiles';
 import createDefaultTags from './createDefaultTags';
@@ -11,7 +11,7 @@ import createDefaultTags from './createDefaultTags';
 export function cli(process: NodeJS.Process) {
   const opt = parseOptions(process);
   const command = `${opt.git.command} ${opt.git.repo} ${opt.dir.template}`;
-  const t = lang(opt.lang).t;
+  const t = translate(opt.lang).get;
   const tags = createDefaultTags(opt.lang);
 
   removeSync(opt.dir.template);

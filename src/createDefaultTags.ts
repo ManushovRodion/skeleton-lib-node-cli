@@ -1,8 +1,7 @@
-import _lang from './lang';
-import { Lang } from './type';
+import translate, { Lang } from './translate';
 
 export default function createDefaultTags(lang: Lang) {
-  const t = _lang(lang).t;
+  const t = translate(lang).get;
 
   return {
     'name-package': {
