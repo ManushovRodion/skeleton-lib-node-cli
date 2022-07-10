@@ -31,7 +31,7 @@ export default function createTerminal(translate: Translate) {
 
     const handleReadLine = (): Promise<string> => {
       const text = translate.get(questionText[questionKey] || '');
-      const label = `${fgCyan}${text}${reset} (${questionKey}): `;
+      const label = `${text} (${fgCyan}${questionKey}${reset}): `;
 
       return new Promise((resolve) =>
         readline.question(label, (input) => resolve(String(input).trim()))
