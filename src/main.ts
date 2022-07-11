@@ -1,15 +1,16 @@
 import { moveSync, removeSync } from 'fs-extra';
-import { exec } from 'child_process';
 
 import * as message from './message';
+import { STATE_IGNORE_FILES } from './state/constants';
+
 import createOptions from './createOptions';
 import createTranslate from './createTranslate';
+import createCommand from './createCommand';
 import createTerminal, { QuestionKey } from './createTerminal';
 import createProcessReplace, {
   MapTagsValues,
   FileKey,
 } from './createProcessReplace';
-import { STATE_IGNORE_FILES } from './state/constants';
 
 export async function cli(process: NodeJS.Process) {
   const opt = createOptions(process);
@@ -25,9 +26,10 @@ export async function cli(process: NodeJS.Process) {
 
   for (const questionLey in terminal.questions) {
     const question = terminal.questions[questionLey as QuestionKey];
-    await question.process();
 
-    mapTagsValues[question.getKey()] = question.getValue();
+    if (await question.process()) {
+      mapTagsValues[question.getKey()] = question.getValue();
+    }
   }
 
   terminal.actions.close();
@@ -43,54 +45,47 @@ export async function cli(process: NodeJS.Process) {
 
   removeSync(opt.dir.template);
 
-  const command = `git clone ${opt.git.repo} ${opt.dir.template}`;
-  exec(command, (error, stdout, stderr) => {
-    if (error) {
-      message.messageError(translate.get('error.gitRepoDownload'));
-      process.exit(0);
-    }
+  const command = createCommand(translate);
+  if (!(await command.run(`git clone ${opt.git.repo} ${opt.dir.template}`))) {
+    return;
+  }
 
-    if (!stderr) {
-      process.exit(0);
-    }
-
-    STATE_IGNORE_FILES.forEach((name) => {
-      removeSync(`${opt.dir.template}/${name}`);
-    });
-
-    message.messageSuccess(translate.get('success.gitRepoDownload'));
-
-    /**
-     * RUN REPLACE
-     */
-    console.log(hr);
-
-    message.messageInfo(`${translate.get('info.processReplace')}`);
-
-    const processReplace = createProcessReplace(opt, translate);
-    processReplace.actions.setMapTags(mapTagsValues);
-
-    for (const fileKey in processReplace.processFiles) {
-      const processFile = processReplace.processFiles[fileKey as FileKey];
-      processFile.process();
-    }
-
-    message.messageSuccess(`${translate.get('success.processReplace')}`);
-
-    /**
-     * RUN MOVE
-     */
-    console.log(hr);
-
-    message.messageInfo(`${translate.get('info.moveSceleton')}`);
-
-    const resultDir =
-      opt.dir.result ||
-      `${opt.dir.root}/${terminal.questions['name-package'].getValue()}`;
-
-    removeSync(resultDir);
-    moveSync(opt.dir.template, resultDir);
-
-    message.messageSuccess(`${translate.get('success.moveSceleton')}`);
+  STATE_IGNORE_FILES.forEach((name) => {
+    removeSync(`${opt.dir.template}/${name}`);
   });
+
+  message.messageSuccess(translate.get('success.gitRepoDownload'));
+
+  /**
+   * RUN REPLACE
+   */
+  console.log(hr);
+
+  message.messageInfo(`${translate.get('info.processReplace')}`);
+
+  const processReplace = createProcessReplace(opt, translate);
+  processReplace.actions.setMapTags(mapTagsValues);
+
+  for (const fileKey in processReplace.processFiles) {
+    const processFile = processReplace.processFiles[fileKey as FileKey];
+    processFile.process();
+  }
+
+  message.messageSuccess(`${translate.get('success.processReplace')}`);
+
+  /**
+   * RUN MOVE
+   */
+  console.log(hr);
+
+  message.messageInfo(`${translate.get('info.moveSceleton')}`);
+
+  const resultDir =
+    opt.dir.result ||
+    `${opt.dir.root}/${terminal.questions['name-package'].getValue()}`;
+
+  removeSync(resultDir);
+  moveSync(opt.dir.template, resultDir);
+
+  message.messageSuccess(`${translate.get('success.moveSceleton')}`);
 }
