@@ -5,7 +5,7 @@
   },
   "info": {
     "gitRepoDownload": "The download process has begun...",
-    "processReplace": "The process of replacing tags with the required values ​​has begun...",
+    "processReplace": "The process of replacing masks with values ​​has begun...",
     "moveSceleton": "Let's initialize our skeleton..."
   },
   "success": {
@@ -16,9 +16,11 @@
   "title": {
     "namePackageLower": "Package name, lowercase",
     "namePackageUpper": "Package name, uppercase",
-    "gitRepoDomain": "The domain where the repository is located. For example: github.com",
-    "gitRepoDir": "Directory where the repository is located",
-    "authorRepo": "Project author",
-    "description": "Project Description"
+    "descriptionPackage": "Project Description",
+    "author": "Author of the project. You can write: \"full name (url)\" - but you can use the full name",
+    "urlRepository": "Path to the git repository where the project is located",
+    "urlIssues": "Address where secondary",
+    "urlHome": "Project home page",
+    "opyright": "Copyright under license"
   }
 }

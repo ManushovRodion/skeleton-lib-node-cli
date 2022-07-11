@@ -2,6 +2,9 @@
 
 # SKELETON-LIB-NODE-CLI
 
+FEATS:
+- Support for new template masks
+
 ### # v1.0.0-alpha.1 (2022-07-11)
 
 FIXS:
