@@ -1,1 +1,24 @@
-{}
+{
+  "error": {
+    "gitRepoDownload": "Failed to connect to the template!",
+    "noFiles": "Files not found!"
+  },
+  "info": {
+    "gitRepoDownload": "The download process has begun...",
+    "processReplace": "The process of replacing tags with the required values ​​has begun...",
+    "moveSceleton": "Let's initialize our skeleton..."
+  },
+  "success": {
+    "gitRepoDownload": "Template downloaded!",
+    "processReplace": "Files are ready!",
+    "moveSceleton": "The project is ready!"
+  },
+  "title": {
+    "namePackageLower": "Package name, lowercase",
+    "namePackageUpper": "Package name, uppercase",
+    "gitRepoDomain": "The domain where the repository is located. For example: github.com",
+    "gitRepoDir": "Directory where the repository is located",
+    "authorRepo": "Project author",
+    "description": "Project Description"
+  }
+}
