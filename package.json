@@ -1,6 +1,6 @@
 {
   "name": "skeleton-lib-node-cli",
-  "version": "1.0.0-alpha.0",
+  "version": "1.0.0-alpha.1",
   "description": "[RU]Интерфейс командной строки, который инициализирует скелет библиотеки, на базе skeleton-lib-node.[EN]Command line interface that invokes skeleton libraries based on skeleton-lib-node",
   "license": "MIT",
   "author": "ManushovRodion <rodion-krox@mauil.ru>",

@@ -2,6 +2,8 @@
 
 # SKELETON-LIB-NODE-CLI
 
+### # v1.0.0-alpha.1 (2022-07-11)
+
 FIXS:
 
 - Не устанавливалось значение {author-repo} в файле package.json

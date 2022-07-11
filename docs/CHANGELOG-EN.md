@@ -2,6 +2,8 @@
 
 # SKELETON-LIB-NODE-CLI
 
+### # v1.0.0-alpha.1 (2022-07-11)
+
 FIXS:
 
 - The {author-repo} value was not set in the package.json file
