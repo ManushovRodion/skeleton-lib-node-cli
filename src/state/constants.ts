@@ -7,7 +7,7 @@ export const STATE_IGNORE_FILES = [
   'docs/README-DEVELOP-EN.md',
 ];
 
-export const STATE_MAP_TAGS_TRANSLATE: { [key in TagName]: string } = {
+export const STATE_MAP_MASKS_TRANSLATE: { [key in TagName]: string } = {
   'name-package': 'title.namePackageLower',
   'NAME-PACKAGE': 'title.namePackageUpper',
   'description-package': 'title.descriptionPackage',
@@ -18,7 +18,7 @@ export const STATE_MAP_TAGS_TRANSLATE: { [key in TagName]: string } = {
   copyright: 'title.copyright',
 };
 
-export const STATE_MAP_FILES_TAGS: { [key in FileName]: TagName[] } = {
+export const STATE_MAP_FILES_MASKS: { [key in FileName]: TagName[] } = {
   'package.json': [
     'name-package',
     'description-package',

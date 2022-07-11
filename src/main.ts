@@ -8,7 +8,7 @@ import createTranslate from './createTranslate';
 import createCommand from './createCommand';
 import createTerminal, { QuestionKey } from './createTerminal';
 import createProcessReplace, {
-  MapTagsValues,
+  MapMasksValues,
   FileKey,
 } from './createProcessReplace';
 
@@ -22,13 +22,13 @@ export async function cli(process: NodeJS.Process) {
    */
 
   const terminal = createTerminal(translate);
-  const mapTagsValues: MapTagsValues = {} as MapTagsValues;
+  const mapMasksValues: MapMasksValues = {} as MapMasksValues;
 
   for (const questionLey in terminal.questions) {
     const question = terminal.questions[questionLey as QuestionKey];
 
     if (await question.process()) {
-      mapTagsValues[question.getKey()] = question.getValue();
+      mapMasksValues[question.getKey()] = question.getValue();
     }
   }
 
@@ -64,7 +64,7 @@ export async function cli(process: NodeJS.Process) {
   message.messageInfo(`${translate.get('info.processReplace')}`);
 
   const processReplace = createProcessReplace(opt, translate);
-  processReplace.actions.setMapTags(mapTagsValues);
+  processReplace.actions.setMapMasks(mapMasksValues);
 
   for (const fileKey in processReplace.processFiles) {
     const processFile = processReplace.processFiles[fileKey as FileKey];

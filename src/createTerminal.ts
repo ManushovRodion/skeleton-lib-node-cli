@@ -1,7 +1,7 @@
 import { createInterface } from 'node:readline';
 import { reset, fgCyan } from 'console-text-styles';
 
-import { STATE_MAP_TAGS_TRANSLATE } from './state/constants';
+import { STATE_MAP_MASKS_TRANSLATE } from './state/constants';
 import { TagName } from './state/types';
 import { Translate } from './createTranslate';
 
@@ -21,7 +21,7 @@ export default function createTerminal(translate: Translate) {
 
   const questionValue: { [key in QuestionKey]?: string } = {};
   const questionText: { [key in QuestionKey]?: string } = {};
-  const questionsList = { ...STATE_MAP_TAGS_TRANSLATE };
+  const questionsList = { ...STATE_MAP_MASKS_TRANSLATE };
 
   let questions: Questions = {} as Questions;
   for (const name in questionsList) {
