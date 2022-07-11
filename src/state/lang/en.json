@@ -21,6 +21,6 @@
     "urlRepository": "Path to the git repository where the project is located",
     "urlIssues": "Address where secondary",
     "urlHome": "Project home page",
-    "opyright": "Copyright under license"
+    "copyright": "Copyright under license"
   }
 }
