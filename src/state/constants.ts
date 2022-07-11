@@ -16,24 +16,26 @@ export const STATE_MAP_TAGS_TRANSLATE: { [key in TagName]: string } = {
   description: 'title.description',
 };
 
-export const STATE_MAP_TAGS_FILES: { [key in TagName]: FileName[] } = {
-  'name-package': [
-    'package.json',
-    'bin/cli.js',
-    'README.md',
-    'docs/README-EN.md',
-    'docs/README-RU.md',
+export const STATE_MAP_FILES_TAGS: { [key in FileName]: TagName[] } = {
+  'package.json': [
+    'name-package',
+    'git-repo-domain',
+    'git-repo-dir',
+    'author-repo',
+    'description',
   ],
-  'NAME-PACKAGE': [
-    'README.md',
-    'docs/README-EN.md',
-    'docs/README-RU.md',
-    'CHANGELOG.md',
-    'docs/CHANGELOG-EN.md',
-    'docs/CHANGELOG-RU.md',
-  ],
-  'git-repo-domain': ['package.json'],
-  'git-repo-dir': ['package.json', 'README.md'],
-  'author-repo': ['package.json', 'LICENSE'],
-  description: ['package.json', 'docs/README-EN.md', 'docs/README-RU.md'],
+  'bin/cli.js': ['name-package'],
+  LICENSE: ['author-repo'],
+  'README.md': ['name-package', 'NAME-PACKAGE', 'git-repo-dir'],
+  'docs/README-RU.md': ['name-package', 'NAME-PACKAGE', 'description'],
+  'docs/README-EN.md': ['name-package', 'NAME-PACKAGE', 'description'],
+  'CHANGELOG.md': ['NAME-PACKAGE'],
+  'docs/CHANGELOG-RU.md': ['NAME-PACKAGE'],
+  'docs/CHANGELOG-EN.md': ['NAME-PACKAGE'],
+};
+
+export const STATE_DEFAULT_OPTIONS = {
+  lang: 'ru',
+  gitRepo: 'https://github.com/ManushovRodion/skeleton-lib-node.git',
+  dirTemplateName: '.skeleton-lib-node',
 };

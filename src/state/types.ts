@@ -1,4 +1,3 @@
-
 export type FileName =
   | 'package.json'
   | 'bin/cli.js'
