@@ -8,7 +8,7 @@ import createTranslate from './createTranslate';
 import createCommand from './createCommand';
 import createTerminal, { QuestionKey } from './createTerminal';
 import createProcessReplace, {
-  MapTagsValues,
+  MapMasksValues,
   FileKey,
 } from './createProcessReplace';
 
@@ -22,13 +22,40 @@ export async function cli(process: NodeJS.Process) {
    */
 
   const terminal = createTerminal(translate);
-  const mapTagsValues: MapTagsValues = {} as MapTagsValues;
+  const mapMasksValues: MapMasksValues = {} as MapMasksValues;
 
   for (const questionLey in terminal.questions) {
     const question = terminal.questions[questionLey as QuestionKey];
+    let value = '';
 
-    if (await question.process()) {
-      mapTagsValues[question.getKey()] = question.getValue();
+    switch (question.getKey()) {
+      case 'NAME-PACKAGE': {
+        value = terminal.questions['name-package'].getValue().toUpperCase();
+        break;
+      }
+      case 'url-issues': {
+        value = `${terminal.questions['url-repository'].getValue()}/issues`;
+        break;
+      }
+      case 'url-home': {
+        value = terminal.questions['url-repository'].getValue();
+        break;
+      }
+      case 'description-package': {
+        value = '...';
+        break;
+      }
+      case 'copyright': {
+        const year = new Date().getFullYear();
+        value = `${year} ${terminal.questions['author'].getValue()}`;
+        break;
+      }
+    }
+
+    question.setValue(value);
+
+    if (await question.process(value)) {
+      mapMasksValues[question.getKey()] = question.getValue();
     }
   }
 
@@ -64,7 +91,7 @@ export async function cli(process: NodeJS.Process) {
   message.messageInfo(`${translate.get('info.processReplace')}`);
 
   const processReplace = createProcessReplace(opt, translate);
-  processReplace.actions.setMapTags(mapTagsValues);
+  processReplace.actions.setMapMasks(mapMasksValues);
 
   for (const fileKey in processReplace.processFiles) {
     const processFile = processReplace.processFiles[fileKey as FileKey];

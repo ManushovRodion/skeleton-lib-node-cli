@@ -12,7 +12,9 @@ export type FileName =
 export type TagName =
   | 'name-package'
   | 'NAME-PACKAGE'
-  | 'git-repo-domain'
-  | 'git-repo-dir'
-  | 'author-repo'
-  | 'description';
+  | 'description-package'
+  | 'url-repository'
+  | 'url-issues'
+  | 'url-home'
+  | 'author'
+  | 'copyright';

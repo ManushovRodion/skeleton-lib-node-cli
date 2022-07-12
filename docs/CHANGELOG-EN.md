@@ -2,6 +2,11 @@
 
 # SKELETON-LIB-NODE-CLI
 
+FEATS:
+
+- Support for new template masks
+- Default value for responses to cli requests
+
 ### # v1.0.0-alpha.1 (2022-07-11)
 
 FIXS:
@@ -11,6 +16,7 @@ FIXS:
 - The project contains .git skeleton-lib-node
 
 FEATS:
+
 - Added support for EN language
 - New design of communication with the user
 - If the -result parameter is not specified, then a folder is created from the value of the name-project tag
