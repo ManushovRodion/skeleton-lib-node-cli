@@ -2,6 +2,10 @@
 
 # SKELETON-LIB-NODE-CLI
 
+### # v1.0.0 (2022-07-012)
+
+Релиз пакета `skeleton-lib-node-cli`
+
 ### # v1.0.0-alpha.2 (2022-07-12)
 
 FEATS:
