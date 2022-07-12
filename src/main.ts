@@ -26,8 +26,35 @@ export async function cli(process: NodeJS.Process) {
 
   for (const questionLey in terminal.questions) {
     const question = terminal.questions[questionLey as QuestionKey];
+    let value = '';
 
-    if (await question.process()) {
+    switch (question.getKey()) {
+      case 'NAME-PACKAGE': {
+        value = terminal.questions['name-package'].getValue().toUpperCase();
+        break;
+      }
+      case 'url-issues': {
+        value = `${terminal.questions['url-repository'].getValue()}/issues`;
+        break;
+      }
+      case 'url-home': {
+        value = terminal.questions['url-repository'].getValue();
+        break;
+      }
+      case 'description-package': {
+        value = '...';
+        break;
+      }
+      case 'copyright': {
+        const year = new Date().getFullYear();
+        value = `${year} ${terminal.questions['author'].getValue()}`;
+        break;
+      }
+    }
+
+    question.setValue(value);
+
+    if (await question.process(value)) {
       mapMasksValues[question.getKey()] = question.getValue();
     }
   }

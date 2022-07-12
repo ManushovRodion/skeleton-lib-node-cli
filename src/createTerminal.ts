@@ -1,5 +1,5 @@
 import { createInterface } from 'node:readline';
-import { reset, fgCyan } from 'console-text-styles';
+import { reset, fgCyan, bgBlue } from 'console-text-styles';
 
 import { STATE_MAP_MASKS_TRANSLATE } from './state/constants';
 import { TagName } from './state/types';
@@ -9,8 +9,9 @@ export type QuestionKey = TagName;
 
 export type Question = {
   getValue: () => string;
+  setValue: (value: string) => void;
   getKey: () => QuestionKey;
-  process: () => Promise<boolean>;
+  process: (placeholder?: string) => Promise<boolean>;
 };
 
 export type Questions = { [key in QuestionKey]: Question };
@@ -29,30 +30,36 @@ export default function createTerminal(translate: Translate) {
     questionValue[questionKey] = '';
     questionText[questionKey] = questionsList[questionKey];
 
-    const handleReadLine = (): Promise<string> => {
+    const handleReadLine = (placeholder?: string): Promise<string> => {
       const text = translate.get(questionText[questionKey] || '');
-      const label = `${text} (${fgCyan}${questionKey}${reset}): `;
+      const placeholderText = placeholder
+        ? `(${fgCyan}${placeholder}${reset})`
+        : '';
+      const questionKeyText = `[${bgBlue} ${questionKey} ${reset}]`;
+      const label = `${questionKeyText} ${text}: ${placeholderText}`;
 
       return new Promise((resolve) =>
         readline.question(label, (input) => resolve(String(input).trim()))
       );
     };
 
-    const process = async () => {
-      while (!questionValue[questionKey]) {
-        if (questionValue[questionKey]) break;
-
-        questionValue[questionKey] = await handleReadLine();
-      }
+    const process = async (placeholder?: string) => {
+      do {
+        const value =
+          (await handleReadLine(placeholder)) || questionValue[questionKey];
+        questionValue[questionKey] = value;
+      } while (!questionValue[questionKey]);
 
       return true;
     };
 
     const getValue = () => questionValue[questionKey] || '';
+    const setValue = (value: string) => (questionValue[questionKey] = value);
     const getKey = () => questionKey;
 
     questions[questionKey] = {
       getValue,
+      setValue,
       getKey,
       process,
     };

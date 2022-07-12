@@ -5,6 +5,7 @@
 FEATS:
 
 - Support for new template masks
+- Default value for responses to cli requests
 
 ### # v1.0.0-alpha.1 (2022-07-11)
 
